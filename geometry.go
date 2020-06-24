@@ -163,7 +163,7 @@ func (g *Geometry) Boundary() (*Geometry, error) {
 }
 
 func (g *Geometry) Union(g1 *Geometry) (*Geometry, error) {
-	geom := C.GEOSUnion_r(g.ctx, g.geom, g1.geom)
+	geom := C.GEOSUnaryUnion_r(g.ctx, g.geom, g1.geom)
 	if geom == nil {
 		return nil, GEOSError
 	}
